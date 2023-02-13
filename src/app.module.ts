@@ -6,6 +6,7 @@ import { ProductsModule } from './products/products.module';
 import { UserSchema } from './user.models';
 
 @Module({
+  //connection to the mongodb
   imports: [
     MongooseModule.forRoot(
       'mongodb+srv://ramchander:Password@cluster0.qdty8sj.mongodb.net/nestjs-mongodb?retryWrites=true&w=majority',
