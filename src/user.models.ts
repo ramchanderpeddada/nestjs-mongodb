@@ -9,7 +9,10 @@ export class User {
   username: string;
 
   @Prop()
-  description: string;
+  email: string;
+
+  @Prop()
+  phone: number;
 
   @Prop({ default: Date.now })
   date_added: Date;

@@ -12,9 +12,8 @@ export class AppService {
 
   //creating the user
   async createUser(user: User) {
-    const newUser = new this.userModel(user);
-    const result = await newUser.save();
-    return result;
+    const newUser = new this.userModel(user).save();
+    return newUser;
   }
 
   //get the user
@@ -30,9 +29,7 @@ export class AppService {
 
   //update the user
   async updateUser(@Param('id') id: string, @Body() data: UserUpdateDto) {
-    const updatedUser = await this.userModel.findByIdAndUpdate(id, data, {
-      new: true,
-    });
+    const updatedUser = await this.userModel.findByIdAndUpdate(id, data);
     return updatedUser;
   }
 

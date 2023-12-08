@@ -11,7 +11,7 @@ import { AppService } from './app.service';
 import { User } from './user.models';
 import { UserUpdateDto } from './userUpdate.dto';
 
-@Controller()
+@Controller('user')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
@@ -27,15 +27,17 @@ export class AppController {
 
   @Post()
   async createUser(@Body() userDto: User) {
-    return this.appService.createUser(userDto);
+    this.appService.createUser(userDto);
+    return 'User created Successfully';
   }
 
   @Put(':id')
   async updateUser(
     @Param('id') id: string,
     @Body() userUpdateDto: UserUpdateDto,
-  ): Promise<User> {
-    return this.appService.updateUser(id, userUpdateDto);
+  ) {
+    this.appService.updateUser(id, userUpdateDto);
+    return 'Updated Succesfully';
   }
 
   @Delete(':id')
